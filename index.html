@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iFix — Assistência Técnica de Celular | Seu celular novo de novo</title>
+    <meta name="description" content="iFix — Especializada em conserto de celulares. Troca de tela, bateria, conectores, software e muito mais. Serviço rápido, seguro e com garantia.">
+    <meta name="keywords" content="assistência técnica celular, conserto de celular, troca de tela, iFix, manutenção smartphone">
+    <link rel="shortcut icon" href="logo completa.png" type="image/x-icon">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="iFix — Assistência Técnica de Celular">
+    <meta property="og:description" content="Seu celular novo de novo — rápido, seguro e com garantia!">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Reset e estilos globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #c19779; /* Cor principal terrosa/acobreada */
+            --primary-dark: #a57f65; /* Versão mais escura para hover */
+            --primary-light: #d4b6a0; /* Versão mais clara */
+            --secondary: #1a1a1a; /* Preto escuro para fundos */
+            --secondary-light: #2d2d2d; /* Cinza escuro para cards */
+            --accent: #121212; /* Quase preto para destaques */
+            --text: #e0e0e0; /* Cinza claro para texto principal */
+            --text-light: #a0a0a0; /* Cinza médio para texto secundário */
+            --text-muted: #666666; /* Cinza escuro para texto menos importante */
+            --border: #3a3a3a; /* Cor para bordas */
+            --shadow: rgba(0, 0, 0, 0.3); /* Sombras mais escuras */
+            --overlay: rgba(0, 0, 0, 0.7); /* Overlay para hero section */
+            
+            /* Cores específicas para elementos */
+            --card-bg: #2d2d2d;
+            --header-bg: rgba(26, 26, 26, 0.95);
+            --footer-bg: #121212;
+            --input-bg: #3a3a3a;
+            --input-border: #4a4a4a;
+            
+            /* Gradientes */
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            --gradient-dark: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            
+            --transition: all 0.3s ease;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--secondary);
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--gradient-primary);
+            color: var(--secondary);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px var(--shadow);
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #20bd5c;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--header-bg);
+            box-shadow: 0 2px 10px var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+        
+        header.scrolled {
+            background-color: rgba(26, 26, 26, 0.98);
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .logo-completo{
+            width: 100px;
+        }
+        
+        .logo span {
+            color: var(--primary);
+            font-size: 40px;
+        }
+        
+        .nav-menu {
+            display: flex;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text);
+            margin: 5px 0;
+            transition: var(--transition);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(var(--overlay), var(--overlay)), url('https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: var(--text);
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-light);
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--accent);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--shadow);
+            border-color: var(--primary);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .service-card p {
+            color: var(--text-light);
+        }
+        
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .feature-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .feature-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        
+        .feature-content p {
+            color: var(--text-light);
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--accent);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .about-image img {
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+        
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px var(--shadow);
+            border: 1px solid var(--border);
+        }
+        
+        .testimonial-stars {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--accent);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-form {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow);
+            border: 1px solid var(--border);
+        }
+        
+        .contact-form h3 {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--input-bg);
+            border: 1px solid var(--input-border);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+            color: var(--text);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .info-icon {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-right: 15px;
+        }
+        
+        .info-item p {
+            color: var(--text-light);
+        }
+        
+        .map-container {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+            border: 1px solid var(--border);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--input-border);
+            color: var(--text);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .footer-logo span {
+            color: var(--primary);
+        }
+        
+        .footer-logo p {
+            color: var(--text);
+        }
+        
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            color: var(--text);
+        }
+        
+        .footer-links h3::after,
+        .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gradient-primary);
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            transition: var(--transition);
+            color: var(--text);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            color: var(--text);
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--card-bg);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+            color: var(--text);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary);
+            color: var(--secondary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-bottom p {
+            color: var(--text);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px var(--shadow);
+            z-index: 100;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20bd5c;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px var(--shadow);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--card-bg);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+                border-top: 1px solid var(--border);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+                background-color: #121212;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <h1>
+                    <img class="logo-completo" src="logo completa.png" alt="">
+                    <!-- <span>iFix</span> -->
+                </h1>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#features">Diferenciais</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#testimonials">Depoimentos</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Resolvemos o que outros não conseguem</h1>
+            <p>Reparos avançados em placas de iPhone e Android!</p>
+            <a href="https://wa.me/5551999999999?text=Olá! Gostaria de fazer um orçamento." class="btn btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Serviços</h2>
+                <p>Oferecemos soluções completas para o seu dispositivo móvel</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Troca de Tela</h3>
+                    <p>Substituição rápida e profissional de telas quebradas</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3>Troca de Bateria</h3>
+                    <p>Recupere a autonomia do seu aparelho com baterias originais</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Reparo de Placa</h3>
+                    <p>Diagnóstico e reparo de problemas na placa-mãe</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Conectores e Botões</h3>
+                    <p>Reparo ou substituição de conectores de carga e botões</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>Limpeza Interna</h3>
+                    <p>Limpeza profissional para prevenir problemas futuros</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Software</h3>
+                    <p>Desbloqueio, reinstalação e atualização de sistema</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <h3>Acessórios</h3>
+                    <p>Venda de capas, películas e outros acessórios</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por que Escolher a iFix?</h2>
+                <p>Conheça nossos diferenciais que garantem a melhor experiência</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Peças Premium com Garantia</h3>
+                        <p>Utilizamos apenas peças de alta qualidade com garantia de 90 dias</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Entrega Rápida</h3>
+                        <p>Muitos reparos são concluídos no mesmo dia</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Atendimento Personalizado</h3>
+                        <p>Explicamos o problema e a solução de forma clara e transparente</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Pagamento Flexível</h3>
+                        <p>Aceitamos PIX, cartão de crédito e débito</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Experiência desde 2017</h3>
+                        <p>Mais de 6 anos consertando celulares com excelência</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Técnicos Especializados</h3>
+                        <p>Profissionais qualificados e em constante atualização</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>Sobre a iFix</h2>
+                    <p>A iFix nasceu com o propósito de oferecer reparos rápidos, seguros e de qualidade. Desde 2017, somos referência em manutenção de smartphones, unindo experiência técnica e atendimento transparente.</p>
+                    <p>Nosso compromisso é fazer você sair com seu celular funcionando como novo — com total satisfação e garantia. Acreditamos que um serviço bem feito vai além do conserto, é sobre construir confiança e relacionamentos duradouros com nossos clientes.</p>
+                    <p>Localizada em Pelotas - RS, atendemos toda a região com a mesma qualidade e dedicação que nos tornou referência no mercado de assistência técnica.</p>
+                </div>
+                
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Técnico da iFix trabalhando">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>O Que Nossos Clientes Dizem</h2>
+                <p>Depoimentos de quem já confiou no nosso trabalho</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Serviço excelente, atendimento rápido e honesto. Trouxe meu celular com problema na tela e fui muito bem atendido. Recomendo!"</p>
+                    <p class="testimonial-author">— Paula S.</p>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Meu celular voltou a funcionar no mesmo dia! Fiquei impressionado com a agilidade e profissionalismo da equipe."</p>
+                    <p class="testimonial-author">— João M.</p>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Atendimento top e preço justo! Resolveram meu problema de bateria rapidamente e ainda me deram dicas para conservar melhor o aparelho."</p>
+                    <p class="testimonial-author">— Carla T.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Entre em Contato</h2>
+                <p>Solicite um orçamento rápido ou venha nos visitar</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-form fade-in">
+                    <h3>Solicite um Orçamento</h3>
+                    <form id="whatsapp-form">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Numero do Seu Celular</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="model">Modelo do Celular</label>
+                            <input type="text" id="model" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="problem">Tipo de Problema</label>
+                            <textarea id="problem" class="form-control" rows="4" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Enviar para o WhatsApp
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info fade-in">
+                    <div>
+                        <h3>Informações de Contato</h3>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p>R. Tiradentes, 2834 - Centro</p>
+                                <p>Pelotas - RS</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <p>Segunda a Sábado: 9h às 19h</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p>(53) 3199-0473</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p>contato@ifixpelotas.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-icons">
+                            <a href="https://www.instagram.com/ifixassistencia" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://wa.me/5551999999999" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.9932293204674!2d-52.3440712!3d-31.7706706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9511b52db9e705b5%3A0x41b0fee74d5b364b!2siFix%20consertos%20e%20acess%C3%B3rios!5e0!3m2!1spt-BR!2sbr!4v1761588668747!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img class="logo-completo" src="logo completa.png" alt="">
+                    <p>Assistência técnica especializada em smartphones de todas as marcas.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#features">Diferenciais</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Pelotas - RS</p>
+                    <p><i class="fas fa-phone"></i> (53) 99999-9999</p>
+                    <p><i class="fas fa-envelope"></i> contato@ifixpelotas.com.br</p>
+                    
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/ifixassistencia" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/5551999999999" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>CNPJ: 00.000.000/0001-00</p>
+                <p>&copy; 2025 iFix —  Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5551999999999?text=Olá! Gostaria de fazer um orçamento." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- JSON-LD for SEO Local -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "iFix Assistência Técnica",
+      "image": "",
+      "@id": "",
+      "url": "",
+      "telephone": "(53) 99999-9999",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Tiradentes, 2834",
+        "addressLocality": "Pelotas",
+        "addressRegion": "RS",
+        "postalCode": "96000-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -31.761890,
+        "longitude": -52.341588
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "19:00"
+      },
+      "sameAs": [
+        "https://www.instagram.com/ifixassistencia"
+      ] 
+    }
+    </script>
+
+    <script>
+        // JavaScript para funcionalidades do site
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu Mobile
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Fechar menu ao clicar em um link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Header scroll effect
+            const header = document.getElementById('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                // Back to top button
+                const backToTop = document.querySelector('.back-to-top');
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('active');
+                } else {
+                    backToTop.classList.remove('active');
+                }
+            });
+            
+            // Form submission to WhatsApp
+            const whatsappForm = document.getElementById('whatsapp-form');
+            
+            whatsappForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const model = document.getElementById('model').value;
+                const problem = document.getElementById('problem').value;
+                
+                const message = `Olá! Gostaria de solicitar um orçamento:%0A%0A*Nome:* ${name}%0A*Celular:* ${phone}%0A*Modelo do Celular:* ${model}%0A*Problema:* ${problem}`;
+                
+                const whatsappURL = `https://wa.me/5551999999999?text=${message}`;
+                
+                window.open(whatsappURL, '_blank');
+            });
+            
+            // Scroll animation with Intersection Observer
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
